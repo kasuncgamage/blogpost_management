@@ -92,7 +92,7 @@ class BlogPostService
         try {
             $data = BlogPostModel::orderBy("blog_post_publish_date", "DESC")
             // ->where("blog_post_publish_date","<=", Carbon::now()->format("Y-m-d H:i:s"))
-            ->get();
+            ->paginate(10);
             return $data;
         } catch (\Throwable $th) {
             return [];

@@ -415,14 +415,8 @@
                     @endforeach
                 </nav>
             </div>
-            <!-- 'postType' => $post->postType->post_type_desc,
-                    'postTitle' => $post->blog_post_title,
-                    'publishDate' => $post->blog_post_publish_date,
-                    'postContent' => $post->blog_post_content,
-                    'postImages' => $post->blog_post_image_url,
-                    'postAuthor' => $post->author->name, -->
-
             <div class="row mb-2">
+                @if($allPosts != [])
                 @foreach($allPosts as $post)
                 <?php
                     $images = json_decode($post->blog_post_image_url,true);
@@ -448,7 +442,8 @@
                     </div>
                 </div>
                 @endforeach
-
+                {!! $allPosts->links() !!}
+                @endif
 
             </div>
 
